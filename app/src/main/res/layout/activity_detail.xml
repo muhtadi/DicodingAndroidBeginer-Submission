@@ -38,7 +38,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_detail_story"
             android:layout_marginHorizontal="10dp"
-            tools:ignore="UnusedAttribute" />
+            tools:ignore="UnusedAttribute"
+            style="@style/ThemeOverlay.AppCompat.Dark"
+            android:layout_marginBottom="10dp"/>
 
     </LinearLayout>
 
