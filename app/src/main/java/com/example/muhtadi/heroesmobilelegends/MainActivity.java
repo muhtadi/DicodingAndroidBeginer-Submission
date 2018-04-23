@@ -1,5 +1,6 @@
 package com.example.muhtadi.heroesmobilelegends;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -41,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showSelectedHeroes(Heroes heroes){
-        Toast.makeText(this, "Kamu memilih "+heroes.getName(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra("name", heroes.getName());
+        intent.putExtra("category", heroes.getCategory());
+        intent.putExtra("image", heroes.getImage());
+        intent.putExtra("story", heroes.getStory());
+        startActivity(intent);
     }
 }
