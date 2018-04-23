@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,5 +31,16 @@ public class MainActivity extends AppCompatActivity {
         ListHeroesAdapter listHeroesAdapter = new ListHeroesAdapter(this);
         listHeroesAdapter.setListHeroes(list);
         rvHeroes.setAdapter(listHeroesAdapter);
+
+        ItemClickSupport.addTo(rvHeroes).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                showSelectedHeroes(list.get(position));
+            }
+        });
+    }
+
+    private void showSelectedHeroes(Heroes heroes){
+        Toast.makeText(this, "Kamu memilih "+heroes.getName(), Toast.LENGTH_SHORT).show();
     }
 }
