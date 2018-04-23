@@ -19,11 +19,11 @@ import java.util.ArrayList;
 public class ListHeroesAdapter extends RecyclerView.Adapter<ListHeroesAdapter.CategoryViewHolder>{
     private Context context;
 
-    public ArrayList<Heroes> getListPresident() {
+    public ArrayList<Heroes> getListHeroes() {
         return listHeroes;
     }
-    public void setListPresident(ArrayList<Heroes> listPresident) {
-        this.listHeroes = listPresident;
+    public void setListHeroes(ArrayList<Heroes> listHeroes) {
+        this.listHeroes = listHeroes;
     }
 
     private ArrayList<Heroes> listHeroes;
@@ -41,11 +41,11 @@ public class ListHeroesAdapter extends RecyclerView.Adapter<ListHeroesAdapter.Ca
     @Override
     public void onBindViewHolder(CategoryViewHolder holder, int position) {
 
-        holder.tvName.setText(getListPresident().get(position).getName());
-        holder.tvCategory.setText(getListPresident().get(position).getCategory());
+        holder.tvName.setText(getListHeroes().get(position).getName());
+        holder.tvCategory.setText(getListHeroes().get(position).getCategory());
 
         Glide.with(context)
-                .load(getListPresident().get(position).getPhoto())
+                .load(getListHeroes().get(position).getPhoto())
                 .override(55, 55)
                 .crossFade()
                 .into(holder.imgPhoto);
@@ -53,7 +53,7 @@ public class ListHeroesAdapter extends RecyclerView.Adapter<ListHeroesAdapter.Ca
 
     @Override
     public int getItemCount() {
-        return getListPresident().size();
+        return getListHeroes().size();
     }
 
     class CategoryViewHolder extends RecyclerView.ViewHolder{
